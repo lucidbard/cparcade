@@ -200,19 +200,31 @@
 
      };
      pageProgress();
-     $('#effects').val($(this).is(':checked'));
+     //  $('#effects').val($(this).is(':checked'));
      //  $("#effects").change(() => {
      //      $('#effects').val($(this).is(":checked"))
      //  })
+     console.log(window.localStorage.getItem("effects", "true"))
+     let effects = JSON.parse(window.localStorage.getItem("effects", "true"))
+     if (effects) {
+         $("#effects").prop('checked', true)
+         $("body").addClass("flicker")
+     } else {
+         $("body").removeClass("flicker")
 
+         $("#effects").prop('checked', false)
+     }
+     $('#effects').bootstrapToggle(effects ? 'on' : 'off')
      $("#effects").change(function() {
          console.log($(this).prop('checked'))
          if (!$(this).prop("checked")) {
              console.log("Turning off")
              $("body").toggleClass("flicker")
+             window.localStorage.setItem("effects", "false")
          } else {
              console.log("Turning on")
              $("body").toggleClass("flicker")
+             window.localStorage.setItem("effects", "true")
          }
      })
 
