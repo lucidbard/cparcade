@@ -200,12 +200,20 @@
 
      };
      pageProgress();
+     $('#effects').val($(this).is(':checked'));
+     //  $("#effects").change(() => {
+     //      $('#effects').val($(this).is(":checked"))
+     //  })
 
+     $("#effects").change(function() {
+         console.log($(this).prop('checked'))
+         if (!$(this).prop("checked")) {
+             console.log("Turning off")
+             $("body").toggleClass("flicker")
+         } else {
+             console.log("Turning on")
+             $("body").toggleClass("flicker")
+         }
+     })
 
  });
-
- $(document).ready(() =>
-     $('h1.bold-text').textfill({
-         maxFontPixels: 200
-     })
- )

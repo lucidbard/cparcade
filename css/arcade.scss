@@ -82,7 +82,7 @@ img {
     }
 }
 
-.crt::after {
+.flicker::after {
     content: " ";
     display: block;
     position: absolute;
@@ -175,9 +175,13 @@ strong {
     color: white;
 }
 
+.flicker h2,
+.flicker .heading a {
+    animation: textShadow2 2.6s infinite;
+}
+
 .crt h2,
 .heading a {
-    animation: textShadow2 2.6s infinite;
     color: fuchsia !important;
     font-size: 1.5em;
     /* -webkit-text-stroke-width: 1px;
@@ -216,14 +220,6 @@ button:hover {
     border: 2px;
 }
 
-.glitch {
-    color: white;
-    font-size: 100px;
-    position: relative;
-    width: 400px;
-    margin: 0 auto;
-}
-
 @keyframes noise-anim {
     $steps: 20;
     @for $i from 0 through $steps {
@@ -253,4 +249,15 @@ button:hover {
             clip: rect(random(100)+px, 9999px, random(100)+px, 0);
         }
     }
+}
+
+footer .btn.btn-primary.toggle-on {
+    background-color: fuchsia
+}
+
+.toggle-handle {
+    border-width: 0 3px;
+    border-color: fuchsia;
+    background-color: white;
+    border-radius: 5px;
 }
